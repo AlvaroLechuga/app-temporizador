@@ -1,7 +1,23 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="tiempo" *ngIf="comienzo">
+    <ion-datetime displayFormat="H:mm:s" placeholder="H:mm:s" [(ngModel)]="hora"></ion-datetime>
+  </div>
+
+  <div class="contenedor" *ngIf="!comienzo">
+    <div [class]="iniciar ? 'loader' : 'load'" *ngIf="horas !== 0 || minutos !== 0 || segundos !== 0"></div>
+    <div class="loadend" *ngIf="horas === 0 && minutos === 0 && segundos === 0"></div>
+    <div class="tiempo">{{ horasString }}:{{ minutosString }}:{{ segundosString }}</div>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-button class="full" color="secondary" [disabled]="hora === '00:00:00'" *ngIf="comienzo" (click)="empezar()">
+    Iniciar
+  </ion-button>
+  <div *ngIf="!comienzo">
+    <ion-button class="full" (click)="reiniciar()" *ngIf="horas === 0 && minutos === 0 && segundos === 0">
+      Reiniciar
+    </ion-button>
+  </div>
+
+</ion-footer>
