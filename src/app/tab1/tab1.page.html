@@ -1,17 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="contenedor">
+    <div [class]="iniciar ? 'loader' : 'load'"></div>
+    <div class="tiempo">{{ horasString }}:{{ minutosString }}:{{ segundosString }}</div>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-button (click)="start()" color="secondary">
+    {{ iniciar ? 'Pausar' : 'Iniciar'}}
+  </ion-button>
+  <ion-button (click)="reiniciar()" [disabled]="horas === 0 && minutos === 0 && segundos === 0">
+    Reiniciar
+  </ion-button>
+</ion-footer>
