@@ -1,0 +1,6 @@
+{
+	"appId": "es.alvarolechuga.timerapp",
+	"appName": "TimerApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

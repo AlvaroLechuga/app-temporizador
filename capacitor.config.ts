@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'app-cronometro',
+  appId: 'es.alvarolechuga.timerapp',
+  appName: 'TimerApp',
   webDir: 'www',
   bundledWebRuntime: false
 };
